@@ -17,7 +17,7 @@ Samba designed to run non-interactively e.g. not from docker run, with config bi
   	services:
     
     samba:
-        image: nas-samba
+        image: znedw/samba:latest
         container_name: samba
         restart: always
         environment:
