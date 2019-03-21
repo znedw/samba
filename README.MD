@@ -35,5 +35,32 @@ Samba designed to run non-interactively e.g. not from docker run, with config bi
 	docker exec -it samba adduser -s /sbin/nologin -h /home/samba -H -D <username>
 	docker exec -it samba smbpasswd -a <username>
 
+## Example smb.conf
+
+	[global]
+      workgroup = WORKGROUP
+      server string = %h server (Samba, Alpine)
+      security = user
+      map to guest = Bad User
+      encrypt passwords = yes
+      load printers = no
+      printing = bsd
+      printcap name = /dev/null
+      disable spoolss = yes
+      disable netbios = yes
+      server role = standalone
+      server services = -dns, -nbt
+      smb ports = 445
+      ;name resolve order = hosts
+      ;log level = 3
+
+	[storage]
+      path = /share
+      comment = Shared Folder
+      browseable = yes
+      writable = yes
+      write list = <username>
+      valid users = <username>
+
 ## Credits
 Borrowed from [Stanback/alpine-samba](https://github.com/Stanback/alpine-samba) and [dperson/samba](https://github.com/dperson/samba)
