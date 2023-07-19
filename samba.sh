@@ -1,1 +1,1 @@
-exec ionice -c 3 smbd -FS --no-process-group </dev/null
+exec ionice -c 3 smbd -F --debug-stdout --no-process-group </dev/null
