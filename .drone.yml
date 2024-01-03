@@ -1,9 +1,14 @@
 kind: pipeline
-name: image
+name: default
 
 steps:
-- name: docker  
-  image: plugins/docker
-  settings:
-    tags:
-    - latest
+  - name: publish
+    image: plugins/docker
+    settings:
+      repo: git.znedw.com/znedw/samba
+      registry: git.znedw.com
+      password:
+         from_secret: password
+      username:
+         from_secret: username
+      tags: latest
