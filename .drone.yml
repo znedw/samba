@@ -12,3 +12,9 @@ steps:
       username:
          from_secret: username
       tags: latest
+
+trigger:
+ branch:
+    - master
+  event:
+    - push
