@@ -18,3 +18,4 @@ trigger:
     - master
   event:
     - push
+    - custom
